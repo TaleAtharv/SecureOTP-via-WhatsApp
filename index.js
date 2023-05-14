@@ -29,7 +29,8 @@ client.on('ready', () => {
         const message = req.body.message;
         const token = req.headers['token'];
         // check if time is set
-        if (token != process.TOKEN) {
+        if (token != process.env.TOKEN) {
+            console.log(process.env.TOKEN);
             res.status(401).send("Invalid Token");
             return;
         }
